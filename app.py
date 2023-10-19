@@ -17,7 +17,8 @@ class TodoModel(Base):
     done = Column(Boolean, nullable=False)
 
     def __repr__(self):
-        return f'<Todo {self.id} {self.description} {self.due_date} {self.done}>'
+        return f'<Todo(id={self.id}, description="{self.description}", due_date={self.due_date}, done={self.done})>'
+
 
     def __str__(self):
         done_status = '[x]' if self.done else '[ ]'
