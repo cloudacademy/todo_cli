@@ -105,4 +105,5 @@ def undone(ctx, id):
     ctx.obj.update(id, done=False)
 
 if __name__ == '__main__':
+    print('Welcome to the TODO CLI!')
     console()
