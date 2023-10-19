@@ -36,7 +36,6 @@ class TodoModel(Base):
 
 class Datastore:
 
-    # Constructor allows the file_path for the DB to be passed in to the engine.
     def __init__(self, file_path='db/todo.db'):
         self.engine = create_engine(f'sqlite:///{file_path}')
         self.Session = sessionmaker(bind=self.engine, expire_on_commit=False)
