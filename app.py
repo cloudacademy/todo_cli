@@ -93,7 +93,7 @@ def console(ctx):
 
 @console.command()
 @click.option('--desc', prompt=True)
-@click.option('--due', prompt=True, type=click.DateTime(), default=lambda: datetime.datetime.now() + datetime.timedelta(days=1))
+@click.option('--due', prompt=True, type=click.DateTime(), default=lambda: datetime.datetime.now() + datetime.timedelta(days=2))
 @click.option('--done', default=False)
 @click.pass_context
 def add(ctx, desc, due, done):
