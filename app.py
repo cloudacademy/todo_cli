@@ -28,11 +28,6 @@ class TodoModel(Base):
         date = self.due_date.strftime('%Y-%m-%d')
         return f'{self.id:3} {self.description:20} {date} {done}'
 
-    def __eq__(self, other):
-        if not isinstance(other, TodoModel):
-            return False
-        return (self.id, self.description, self.due_date, self.done) == \
-               (other.id, other.description, other.due_date, other.done)
 
 class Datastore:
 
