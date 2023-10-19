@@ -20,10 +20,6 @@ class TodoModel(Base):
         return f'<Todo {self.id} {self.description} {self.due_date} {self.done}>'
 
     def __str__(self):
-        ''' returns an evenly spaced string representation of the todo item.
-            The done value is represented as [x] for done [ ] for not done.
-            The due date is formatted as YYYY-MM-DD
-        '''
         done = '[x]' if self.done else '[ ]'
         date = self.due_date.strftime('%Y-%m-%d')
         return f'{self.id:3} {self.description:20} {date} {done}'
