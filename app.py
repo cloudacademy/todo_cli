@@ -103,6 +103,8 @@ def add(ctx, desc, due, done):
 @click.option('--done', default=None)
 @click.pass_context
 def listing(ctx, done):
+    # Print the header
+    print('ID  Description          Due Date Done')
     for todo in ctx.obj.get_all(done):
         print(str(todo))
 
