@@ -16,31 +16,8 @@ class TodoModel(Base):
     due_date = Column(DateTime, nullable=False)
     done = Column(Boolean, nullable=False)
 
-    def __repr__(self):
-        return f'<Todo {self.id} {self.description} {self.due_date} {self.done}>'
-
-    def __str__(self):
-        ''' returns an evenly spaced string representation of the todo item.
-            The done value is represented as [x] for done [ ] for not done.
-            The due date is formatted as YYYY-MM-DD
-        '''
-        done = '[x]' if self.done else '[ ]'
-        date = self.due_date.strftime('%Y-%m-%d')
-        return f'{self.id:3} {self.description:20} {date} {done}'
-
 
 class Datastore:
-
-    def __init__(self, file_path='db/todo.db'):
-        self.engine = create_engine(f'sqlite:///{file_path}')
-        self.Session = sessionmaker(bind=self.engine, expire_on_commit=False)
-        # Create the directory for the database if it doesn't exist.
-        Path(file_path).parent.mkdir(parents=True, exist_ok=True)
-        # Attempt to create the database. If it already exists, this will do nothing.
-        try:
-            Base.metadata.create_all(self.engine)
-        except:
-            pass
 
     # Add a new todo item based on the individual fields.
     def add(self, description, due_date, done):
